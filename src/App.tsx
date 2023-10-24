@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { StyledEngineProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+
+import { Routes, Route, Navigate } from 'react-router-dom'
+import LoginPage from './pages/Login/LoginPage'
+import Main from './Main'
+import { isUserAuthenticated } from './authentication'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const isAuthenticated = isUserAuthenticated('', '')
+
+    return (
+        <StyledEngineProvider injectFirst>
+            <CssBaseline />
+            <Routes>
+                <Route
+                    path="/login"
+                    element={
+                        isAuthenticated ? <Navigate to="/" /> : <LoginPage />
+                    }
+                />
+                <Route
+                    path="/"
+                    element={
+                        isAuthenticated ? <Main /> : <Navigate to="/login" />
+                    }
+                ></Route>
+            </Routes>
+        </StyledEngineProvider>
+    )
 }
 
-export default App;
+export default App
