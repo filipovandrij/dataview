@@ -3,8 +3,9 @@ import CssBaseline from '@mui/material/CssBaseline'
 
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LoginPage from './pages/Login/LoginPage'
-import Main from './Main'
+import Main from './container/Main/Main'
 import { isUserAuthenticated } from './authentication'
+import Header from './container/Header/Header'
 
 function App() {
     const isAuthenticated = isUserAuthenticated('', '')
@@ -12,6 +13,7 @@ function App() {
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
+            <Header></Header>
             <Routes>
                 <Route
                     path="/login"
