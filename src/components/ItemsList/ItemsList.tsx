@@ -5,10 +5,7 @@ import { Button } from '@mui/material'
 import './ItemsList.scss'
 import UpdateForm from '../UpdateForm/UpdateForm'
 
-import {
-    TablePagination,
-    tablePaginationClasses,
-} from '@mui/base/TablePagination'
+import { TablePagination } from '@mui/base/TablePagination'
 
 type Props = {}
 
