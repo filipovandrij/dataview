@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { DataType, ResultItems } from '../../types/DataType'
+import { ResultItems } from '../../types/DataType'
 
 interface TableState {
     data: ResultItems[]
