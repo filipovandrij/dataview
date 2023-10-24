@@ -7,7 +7,7 @@ import UpdateForm from '../UpdateForm/UpdateForm'
 
 import {
     TablePagination,
-    tablePaginationClasses as classes,
+    tablePaginationClasses,
 } from '@mui/base/TablePagination'
 
 type Props = {}
